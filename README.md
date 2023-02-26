@@ -1,5 +1,5 @@
 
-<p align="center">Adapt it library</p>
+<h1 align="center">Adapt it library</h1>
   
 ## Project Structure
 ✔ This is a component mix library to help you make websites projects faster.
