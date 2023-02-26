@@ -5,12 +5,12 @@
 ✔ This is a component mix library to help you make websites projects faster.
 
 ## Technologies
-- [Vite](https://www.npmjs.com/package/next) - An open-source web development framework created by Vercel usage to workflow the pages.
+- [Vite](https://vitejs.dev/) - An open-source web development framework created by Vercel usage to workflow the pages.
 - [Typescript](https://www.npmjs.com/package/typescript) - A strongly typed programming language.
 - [SCSS](https://www.npmjs.com/package/scss) - A pre-processor scripting language that will be compiled or interpreted into CSS.
 - [ESlint](https://www.npmjs.com/package/eslint) - An open source project that helps you find and fix problems with your JavaScript code.
 - [Stylelint](https://www.npmjs.com/package/stylelint) - A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
-- [husky](https://www.npmjs.com/package/axios) - Trigger actions before some git's execution.
+- [husky](https://typicode.github.io/husky/#/) - Trigger actions before some git's execution.
 
 ## Git Hub Template
 - Workflows:
