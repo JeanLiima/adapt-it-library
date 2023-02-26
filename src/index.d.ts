@@ -1,1 +1,1 @@
-declare module 'adapt-it-library'
+declare module "adapt-it-library";

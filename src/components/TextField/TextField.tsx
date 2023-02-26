@@ -1,17 +1,17 @@
-import React from 'react'
-import { type InputHTMLAttributes } from 'react'
+import React from "react";
+import { type InputHTMLAttributes } from "react";
 
-import Styles from './styles.module.scss'
+import Styles from "./styles.module.scss";
 
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
-    label: string
+	label: string;
 }
 
 const TextField: React.FC<TextFieldProps> = (props) => (
-    <div className={Styles.text}>
-        <span>{props.label}</span>
-        <input {...props} />
-    </div>
-)
+	<div className={Styles.text}>
+		<span>{props.label}</span>
+		<input {...props} />
+	</div>
+);
 
-export default TextField
+export default TextField;
