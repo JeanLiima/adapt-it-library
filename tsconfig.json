@@ -29,7 +29,7 @@
     },
     "typeRoots": [
       "node_modules/@types",
-      "src/index.d.ts"
+      "src/index.ts"
     ]
   },
   "include": [
