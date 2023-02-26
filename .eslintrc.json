@@ -1,11 +1,12 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript"
+        "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [],
     "parserOptions": {
@@ -16,7 +17,80 @@
         ]
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint",
+        "simple-import-sort"
     ],
-    "rules": {}
+    "rules": {
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            0,
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "simple-import-sort/imports": [
+            "error",
+            {
+                "groups": [
+                    [
+                        "^react",
+                        "^@?\\w"
+                    ],
+                    [
+                        "^(@|assets)(/.*|$)",
+                        "^(@|components)(/.*|$)"
+                    ],
+                    [
+                        "^\\u0000"
+                    ],
+                    [
+                        "^\\.\\.(?!/?$)",
+                        "^\\.\\./?$"
+                    ],
+                    [
+                        "^\\./(?=.*/)(?!/?$)",
+                        "^\\.(?!/?$)",
+                        "^\\./?$"
+                    ],
+                    [
+                        "^.+\\.?(css)$",
+                        "^.+\\.?(scss)$"
+                    ]
+                ]
+            }
+        ],
+        "simple-import-sort/exports": "error"
+    }
 }
