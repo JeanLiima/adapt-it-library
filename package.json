@@ -1,19 +1,45 @@
 {
-  "name": "jelib",
+  "name": "adapt-it-library",
   "private": false,
   "version": "0.0.0",
   "type": "module",
-  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
+    "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn  eslint",
+      "yarn  format"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/react-vite-library.es.js",
+      "require": "./dist/react-vite-library.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "main": "./dist/react-vite-library.umd.js",
+  "module": "./dist/react-vite-library.es.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "16.8.0 || >=17.x",
+    "react-dom": "16.8.0 || >=17.x"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -36,8 +62,28 @@
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "sass": "^1.58.0",
     "typescript": "^4.9.5",
-    "vite": "^4.1.0"
-  }
+    "vite": "^4.1.0",
+    "vite-plugin-dts": "^2.0.2",
+    "vite-plugin-linter": "^2.0.2",
+    "vite-tsconfig-paths": "^4.0.5"
+  },
+  "peerDependencies": {
+    "react": "16.8.0 || >=17.x",
+    "react-dom": "16.8.0 || >=17.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JeanLiima/JeLib"
+  },
+  "keywords": [],
+  "author": "Jean Lima",
+  "bugs": {
+    "url": "https://github.com/JeanLiima/JeLib/issues"
+  },
+  "homepage": "https://github.com/JeanLiima/JeLib",
+  "license": "MIT"
 }
