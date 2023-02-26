@@ -9,6 +9,7 @@
 - [Typescript](https://www.npmjs.com/package/typescript) - A strongly typed programming language.
 - [SCSS](https://www.npmjs.com/package/scss) - A pre-processor scripting language that will be compiled or interpreted into CSS.
 - [ESlint](https://www.npmjs.com/package/eslint) - An open source project that helps you find and fix problems with your JavaScript code.
+- [Prettier](https://prettier.io/) - An opinionated code formatter.
 - [Stylelint](https://www.npmjs.com/package/stylelint) - A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
 - [husky](https://typicode.github.io/husky/#/) - Trigger actions before some git's execution.
 
