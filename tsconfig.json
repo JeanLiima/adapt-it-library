@@ -23,7 +23,7 @@
     "declarationMap": true,
     "baseUrl": ".",
     "paths": {
-      "JeLib": [
+      "adapt-it-library": [
         "src/index.ts"
       ]
     },

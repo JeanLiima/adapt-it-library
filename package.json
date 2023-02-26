@@ -29,13 +29,13 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/react-vite-library.es.js",
-      "require": "./dist/react-vite-library.umd.js"
+      "import": "./dist/adapt-it-library.es.js",
+      "require": "./dist/adapt-it-library.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "main": "./dist/react-vite-library.umd.js",
-  "module": "./dist/react-vite-library.es.js",
+  "main": "./dist/adapt-it-library.umd.js",
+  "module": "./dist/adapt-it-library.es.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
     "react": "16.8.0 || >=17.x",

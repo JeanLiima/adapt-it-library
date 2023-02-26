@@ -23,9 +23,9 @@ export default defineConfig((configEnv) => ({
   build: {
     lib: {
       entry: resolve('src', 'index.ts'),
-      name: 'JeLib',
+      name: 'adapt-it-library',
       formats: ['es', 'umd'],
-      fileName: (format) => `JeLib.${format}.js`,
+      fileName: (format) => `adapt-it-library.${format}.js`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
