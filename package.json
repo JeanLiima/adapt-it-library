@@ -77,13 +77,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JeanLiima/JeLib"
+    "url": "https://github.com/JeanLiima/adapt-it-library"
   },
   "keywords": [],
   "author": "Jean Lima",
   "bugs": {
-    "url": "https://github.com/JeanLiima/JeLib/issues"
+    "url": "https://github.com/JeanLiima/adapt-it-library/issues"
   },
-  "homepage": "https://github.com/JeanLiima/JeLib",
+  "homepage": "https://github.com/JeanLiima/adapt-it-library#readme",
   "license": "MIT"
 }
