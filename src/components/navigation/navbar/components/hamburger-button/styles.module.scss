@@ -1,0 +1,48 @@
+@import "../../variables";
+
+.hamburger-button {
+	display: grid;
+	place-items: center;
+	z-index: 3;
+	right: 0;
+	height: 100%;
+	background: transparent;
+	color: inherit;
+	border: 0;
+	padding: 0 20px;
+	cursor: pointer;
+
+	@media (min-width: $min-tablet-viewport) {
+		display: none;
+	}
+
+	&-container {
+		>span {
+			display: block;
+			width: 30px;
+			height: 2px;
+			margin-bottom: 5px;
+			position: relative;
+			background: #cdcdcd;
+			border-radius: 3px;
+			z-index: 1;
+			transition: 0.4s;
+		}
+	}
+
+	&[data-open="true"] {
+		.hamburger-button-container {
+			>span:first-child {
+				transform: translate(0, 7px) rotate(-45deg);
+			}
+
+			>span:nth-child(2) {
+				opacity: 0;
+			}
+
+			>span:last-child {
+				transform: translate(0, -7px) rotate(45deg);
+			}
+		}
+	}
+}
