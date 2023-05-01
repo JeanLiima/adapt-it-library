@@ -11,8 +11,6 @@ import * as packageJson from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig(({command, mode, ssrBuild}) => {
-	console.log(command);
-
 	if (command === 'serve') { 
 		return ({
 			plugins: [
