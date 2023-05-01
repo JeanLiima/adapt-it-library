@@ -48,5 +48,16 @@ npm run test
 yarn test
 ```
 
+## Publish
+```bash
+npm run build
+# or
+yarn build
+```
+- Update the version in package and run:
+```bash
+npm publish
+```
+
 ## Dev
 - [Jean Lima](http://jean.dev.com.br/)
