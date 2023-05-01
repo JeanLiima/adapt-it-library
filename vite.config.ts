@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import path from "path";
 
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
@@ -22,7 +22,7 @@ export default defineConfig((configEnv) => ({
   ],
   build: {
     lib: {
-      entry: resolve('src', 'index.ts'),
+      entry: path.resolve('src', 'index.ts'),
       name: 'adapt-it-library',
       formats: ['es', 'umd'],
       fileName: (format) => `adapt-it-library.${format}.js`,
@@ -31,4 +31,10 @@ export default defineConfig((configEnv) => ({
       external: [...Object.keys(packageJson.peerDependencies)],
     },
   },
+  resolve: {
+	alias: {
+		"@": `${path.resolve(__dirname, "./src/styles/")}`,
+	}
+
+}
 }))
