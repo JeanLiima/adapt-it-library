@@ -6,7 +6,7 @@ import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import EsLint from 'vite-plugin-linter'
 import tsConfigPaths from 'vite-tsconfig-paths'
-const { EsLinter, linterPlugin } = EsLint
+const { EsLinter, linterPlugin, TypeScriptLinter } = EsLint
 import * as packageJson from './package.json'
 
 // https://vitejs.dev/config/
@@ -18,7 +18,7 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				tsConfigPaths(),
 				linterPlugin({
 					include: ['./src/**/*.{ts,tsx}'],
-					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}})],
+					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}}), new TypeScriptLinter()],
 				}),
 			],
 			resolve: {
@@ -36,7 +36,7 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				tsConfigPaths(),
 				linterPlugin({
 					include: ['./src/**/*.{ts,tsx}'],
-					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}})],
+					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}}), new TypeScriptLinter()],
 				}),
 				dts({
 					include: ['src'],
