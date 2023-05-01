@@ -1,4 +1,5 @@
-import path from "path";
+
+import { resolve } from "node:path";
 
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
@@ -7,34 +8,56 @@ import EsLint from 'vite-plugin-linter'
 import tsConfigPaths from 'vite-tsconfig-paths'
 const { EsLinter, linterPlugin } = EsLint
 import * as packageJson from './package.json'
-// https://vitejs.dev/config/
-export default defineConfig((configEnv) => ({
-  plugins: [
-    react(),
-    tsConfigPaths(),
-    linterPlugin({
-      include: ['./src}/**/*.{ts,tsx}'],
-      linters: [new EsLinter({ configEnv })],
-    }),
-    dts({
-      include: ['src'],
-    }),
-  ],
-  build: {
-    lib: {
-      entry: path.resolve('src', 'index.ts'),
-      name: 'adapt-it-library',
-      formats: ['es', 'umd'],
-      fileName: (format) => `adapt-it-library.${format}.js`,
-    },
-    rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
-    },
-  },
-  resolve: {
-	alias: {
-		"@": `${path.resolve(__dirname, "./src/styles/")}`,
-	}
 
-}
-}))
+// https://vitejs.dev/config/
+export default defineConfig(({command, mode, ssrBuild}) => {
+	console.log(command);
+
+	if (command === 'serve') { 
+		return ({
+			plugins: [
+				react(),
+				tsConfigPaths(),
+				linterPlugin({
+					include: ['./src}/**/*.{ts,tsx}'],
+					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}})],
+				}),
+			],
+			resolve: {
+				alias: {
+					"@": `${resolve(__dirname, "./src/styles/")}`,
+				}
+			}
+		})
+	} else {
+		return ({
+			plugins: [
+				react(),
+				tsConfigPaths(),
+				linterPlugin({
+					include: ['./src}/**/*.{ts,tsx}'],
+					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}})],
+				}),
+				dts({
+					include: ['src'],
+				}),
+			],
+			build: {
+				lib: {
+					entry: resolve('src', 'index.ts'),
+					name: 'adapt-it-library',
+					formats: ['es', 'umd'],
+					fileName: (format) => `adapt-it-library.${format}.js`,
+				},
+				rollupOptions: {
+					external: [...Object.keys(packageJson.peerDependencies)],
+				},
+			},
+			resolve: {
+				alias: {
+					"@": `${resolve(__dirname, "./src/styles/")}`,
+				}
+			}
+		});
+	}
+})
