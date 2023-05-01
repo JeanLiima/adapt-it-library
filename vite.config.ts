@@ -21,11 +21,15 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}})],
 				}),
 			],
-			resolve: {
-				alias: {
-					"@": `${resolve(__dirname, "./src/styles/")}`,
+			build: {
+				resolve: {
+					alias: {
+						"@": `${resolve(__dirname, "./src/styles/")}`,
+					}
 				}
-			}
+			},
+			root: "./public/",
+			publicDir: "./public/",
 		})
 	} else {
 		return ({
