@@ -17,19 +17,17 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				react(),
 				tsConfigPaths(),
 				linterPlugin({
-					include: ['./src}/**/*.{ts,tsx}'],
+					include: ['./src/**/*.{ts,tsx}'],
 					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}})],
 				}),
 			],
-			build: {
-				resolve: {
-					alias: {
-						"@": `${resolve(__dirname, "./src/styles/")}`,
-					}
-				}
-			},
-			root: "./public/",
-			publicDir: "./public/",
+			resolve: {
+				alias: [
+					{
+						find: "@", replacement: resolve(__dirname, "./src/styles"),
+					},
+				],
+			}
 		})
 	} else {
 		return ({
@@ -37,7 +35,7 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				react(),
 				tsConfigPaths(),
 				linterPlugin({
-					include: ['./src}/**/*.{ts,tsx}'],
+					include: ['./src/**/*.{ts,tsx}'],
 					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}})],
 				}),
 				dts({
@@ -56,9 +54,11 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				},
 			},
 			resolve: {
-				alias: {
-					"@": `${resolve(__dirname, "./src/styles/")}`,
-				}
+				alias: [
+					{
+						find: "@", replacement: resolve(__dirname, "./src/styles"),
+					},
+				],
 			}
 		});
 	}

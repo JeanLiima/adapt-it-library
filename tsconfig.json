@@ -25,7 +25,10 @@
     "paths": {
       "adapt-it-library": [
         "src/index.ts"
-      ]
+      ],
+	  "@": [
+		"src/styles"
+	  ]
     },
     "typeRoots": [
       "node_modules/@types",
