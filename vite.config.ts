@@ -26,6 +26,9 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 					{
 						find: "@styles", replacement: resolve(__dirname, "./src/styles"),
 					},
+					{
+						find: "adapt-it-library", replacement: resolve(__dirname, "./src/index.ts"),
+					},
 				],
 			}
 		})
