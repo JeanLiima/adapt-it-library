@@ -24,7 +24,7 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 			resolve: {
 				alias: [
 					{
-						find: "@", replacement: resolve(__dirname, "./src/styles"),
+						find: "@styles", replacement: resolve(__dirname, "./src/styles"),
 					},
 				],
 			}
@@ -56,7 +56,7 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 			resolve: {
 				alias: [
 					{
-						find: "@", replacement: resolve(__dirname, "./src/styles"),
+						find: "@styles", replacement: resolve(__dirname, "./src/styles"),
 					},
 				],
 			}
