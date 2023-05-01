@@ -23,12 +23,12 @@
 		"declarationMap": true,
 		"baseUrl": ".",
 		"paths": {
-		"adapt-it-library": [
-			"src/index.ts"
-		],
-		"@styles": [
-			"src/styles"
-		]
+			"adapt-it-library": [
+				"src/index.ts"
+			],
+			"@styles": [
+				"src/styles"
+			]
 		},
 		"typeRoots": [
 			"node_modules/@types",
