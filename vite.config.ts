@@ -5,8 +5,9 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import EsLint from 'vite-plugin-linter'
-import tsConfigPaths from 'vite-tsconfig-paths'
 const { EsLinter, linterPlugin, TypeScriptLinter } = EsLint
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+import tsConfigPaths from 'vite-tsconfig-paths'
 import * as packageJson from './package.json'
 
 // https://vitejs.dev/config/
@@ -49,6 +50,7 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 						new EsLinter({ configEnv: {command, mode, ssrBuild}}), 
 					],
 				}),
+				cssInjectedByJsPlugin(),
 				dts({
 					include: ['src'],
 					exclude: ['app']
@@ -63,6 +65,9 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				},
 				rollupOptions: {
 					external: [...Object.keys(packageJson.peerDependencies)],
+					output: {
+						manualChunks: undefined,
+					},
 				},
 			},
 			resolve: {
