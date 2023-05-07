@@ -17,9 +17,14 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				react(),
 				tsConfigPaths({ root: 'src' }),
 				linterPlugin({
-					include: ['.\src\components\**\*.{ts,tsx}', '.\app\**\*.{ts,tsx}'],
-					exclude: ['.\src\index.d.ts'],
-					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}}), new TypeScriptLinter()],
+					include: [ resolve(__dirname, "src/**/*.{ts,tsx}"), resolve(__dirname, "app/**/*.{ts,tsx}")],
+					exclude: [ resolve(__dirname, "./dist")],
+					linters: [
+						new EsLinter({ configEnv: {command, mode, ssrBuild}})
+					],
+					build: {
+						includeMode: "filesInFolder",
+					}
 				}),
 			],
 			resolve: {
@@ -28,7 +33,7 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 						find: "@styles", replacement: resolve(__dirname, "./src/styles/"),
 					},
 					{
-						find: "adapt-it-library", replacement: resolve(__dirname, "./src/index.ts"),
+						find: "adapt-it-library", replacement: resolve(__dirname, "dist/adapt-it-library.es.js"),
 					},
 				],
 			}
@@ -39,11 +44,14 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 				react(),
 				tsConfigPaths(),
 				linterPlugin({
-					include: ['./src/**/*.{ts,tsx}'],
-					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}}), new TypeScriptLinter()],
+					include: ['./src/**/*.{ts,tsx}', './typings'],
+					linters: [
+						new EsLinter({ configEnv: {command, mode, ssrBuild}}), 
+					],
 				}),
 				dts({
 					include: ['src'],
+					exclude: ['app']
 				}),
 			],
 			build: {
