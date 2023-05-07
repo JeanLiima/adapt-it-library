@@ -32,12 +32,13 @@
 		},
 		"typeRoots": [
 			"node_modules/@types",
-			"src/index.d.ts"
 		]
 	},
 	"include": [
 		"src",
-		".storybook/stories"
+		"app",
+		".storybook/stories", 
+		"adapt-it-library"	
 	],
 	"references": [
 		{
