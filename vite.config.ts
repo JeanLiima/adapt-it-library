@@ -15,16 +15,17 @@ export default defineConfig(({command, mode, ssrBuild}) => {
 		return ({
 			plugins: [
 				react(),
-				tsConfigPaths(),
+				tsConfigPaths({ root: 'src' }),
 				linterPlugin({
-					include: ['./src/**/*.{ts,tsx}'],
+					include: ['.\src\components\**\*.{ts,tsx}', '.\app\**\*.{ts,tsx}'],
+					exclude: ['.\src\index.d.ts'],
 					linters: [new EsLinter({ configEnv: {command, mode, ssrBuild}}), new TypeScriptLinter()],
 				}),
 			],
 			resolve: {
 				alias: [
 					{
-						find: "@styles", replacement: resolve(__dirname, "./src/styles"),
+						find: "@styles", replacement: resolve(__dirname, "./src/styles/"),
 					},
 					{
 						find: "adapt-it-library", replacement: resolve(__dirname, "./src/index.ts"),
