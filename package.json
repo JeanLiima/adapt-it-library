@@ -1,7 +1,7 @@
 {
   "name": "adapt-it-library",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.10",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -34,7 +34,7 @@
       "require": "./dist/adapt-it-library.umd.js"
     },
     "./dist/style.css": "./dist/style.css",
-	"./dist/index.d.ts": "./dist/index.d.ts"
+    "./dist/index.d.ts": "./dist/index.d.ts"
   },
   "main": "./dist/adapt-it-library.umd.js",
   "module": "./dist/adapt-it-library.es.js",
@@ -71,6 +71,7 @@
     "sass": "^1.58.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.0",
+    "vite-plugin-css-injected-by-js": "^3.1.0",
     "vite-plugin-dts": "^2.0.2",
     "vite-plugin-linter": "^2.0.2",
     "vite-tsconfig-paths": "^4.0.5"
